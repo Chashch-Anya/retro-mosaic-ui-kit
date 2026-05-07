@@ -1,12 +1,13 @@
 export const mosaicTheme = {
     spacing: {
-        1: '8px',
-        2: '16px',
-        3: '24px',
-        4: '32px',
+        xs: '4px',
+        sm: '8px',
+        md: '16px',
+        lg: '24px',
+        xl: '32px',
     },
 
-    borderRadius: {
+    radius: {
         none: '0',
     },
 
@@ -28,7 +29,7 @@ export const mosaicTheme = {
         },
 
         accent: {
-            500: 'rgba(255, 255, 255, 0.9)', 
+            500: 'rgba(255, 255, 255, 0.9)',
             600: 'rgba(255, 255, 255, 0.7)',
         },
 
@@ -36,7 +37,46 @@ export const mosaicTheme = {
         black: '#081820',
     },
 
-    shadow: '4px 4px 0px 0px #0f1f00',
+    shadows: {
+        sm: '2px 2px 0px #0f1f00',
+        md: '4px 4px 0px #0f1f00',
+        lg: '6px 6px 0px #0f1f00',
+    },
+
+    typography: {
+        fontFamily: "'Press Start 2P', monospace",
+
+        sizes: {
+            sm: '12px',
+            md: '14px',
+            lg: '16px',
+        },
+
+        lineHeights: {
+            sm: '1.2',
+            md: '1.4',
+            lg: '1.6',
+        },
+    },
+
+    surfaces: {
+        pixelTexture: `
+    linear-gradient(
+      45deg,
+      transparent 48%,
+      rgba(0,0,0,0.2) 50%,
+      transparent 52%
+    ),
+    linear-gradient(
+      -45deg,
+      transparent 48%,
+      rgba(0,0,0,0.2) 50%,
+      transparent 52%
+    )
+  `,
+
+        pixelTextureSize: '7px 7px',
+    }
 };
 
 export type MosaicTheme = typeof mosaicTheme;

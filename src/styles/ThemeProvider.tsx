@@ -1,14 +1,68 @@
-import React, { createContext } from 'react';
+import React from 'react';
 import { mosaicTheme } from './theme';
+import type { MosaicTheme } from './theme';
+import { ThemeContext } from './ThemeContext';
 
-const ThemeContext = createContext(mosaicTheme);
+interface ThemeProviderProps {
+    children: React.ReactNode;
 
-export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+    theme?: Partial<MosaicTheme>;
+}
+
+const mergeTheme = (
+    base: MosaicTheme,
+    custom?: Partial<MosaicTheme>
+): MosaicTheme => {
+    if (!custom) return base;
+
+    return {
+        ...base,
+        ...custom,
+
+        colors: {
+            ...base.colors,
+            ...custom.colors,
+        },
+
+        spacing: {
+            ...base.spacing,
+            ...custom.spacing,
+        },
+
+        radius: {
+            ...base.radius,
+            ...custom.radius,
+        },
+
+        typography: {
+            ...base.typography,
+            ...custom.typography,
+        },
+
+        shadows: {
+            ...base.shadows,
+            ...custom.shadows,
+        },
+
+        surfaces: {
+            ...base.surfaces,
+            ...custom.surfaces,
+        },
+    };
+};
+
+export const ThemeProvider = ({
+    children,
+    theme,
+}: ThemeProviderProps) => {
+    const mergedTheme =
+        mergeTheme(mosaicTheme, theme);
+
     return (
-        <ThemeContext.Provider value={mosaicTheme}>
+        <ThemeContext.Provider
+            value={mergedTheme}
+        >
             {children}
         </ThemeContext.Provider>
     );
 };
-
-export { ThemeContext };

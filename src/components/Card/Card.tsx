@@ -41,28 +41,63 @@ export const Card: React.FC<CardProps> & {
     variant = 'primary',
     padding = 'medium',
     onClick,
+    className = '',
 }) => {
         const theme = useTheme();
 
-        const cardStyle: React.CSSProperties = {
-            backgroundColor: variant === 'primary' ? theme.colors.primary[500] :
-                variant === 'secondary' ? theme.colors.gray[300] :
-                    theme.colors.accent[500],
-            color: variant === 'accent' ? theme.colors.black : theme.colors.white,
-            borderColor: variant === 'primary' ? theme.colors.black :
-                variant === 'secondary' ? theme.colors.gray[700] :
-                    theme.colors.accent[500],
-            padding: padding === 'none' ? '0' :
-                padding === 'small' ? theme.spacing[1] :
-                    padding === 'medium' ? theme.spacing[2] :
-                        padding === 'large' ? theme.spacing[3] : '',
-            boxShadow: theme.shadow,
+        const paddingMap = {
+            none: '0',
+            small: theme.spacing.sm,
+            medium: theme.spacing.md,
+            large: theme.spacing.lg,
         };
+
+        const currentPadding = paddingMap[padding];
+
+        const cardStyle = {
+            '--card-bg':
+                variant === 'primary'
+                    ? theme.colors.primary[500]
+                    : variant === 'secondary'
+                        ? theme.colors.gray[300]
+                        : theme.colors.accent[500],
+
+            '--card-color':
+                variant === 'accent'
+                    ? theme.colors.black
+                    : theme.colors.white,
+
+            '--card-border':
+                variant === 'primary'
+                    ? theme.colors.black
+                    : variant === 'secondary'
+                        ? theme.colors.gray[700]
+                        : theme.colors.accent[500],
+
+            '--card-padding':
+                currentPadding,
+
+            '--card-shadow':
+                theme.shadows.md,
+
+            '--card-font-family':
+                theme.typography.fontFamily,
+
+            '--card-radius':
+                theme.radius.none,
+
+            '--mosaic-surface':
+                theme.surfaces.pixelTexture,
+
+            '--mosaic-surface-size':
+                theme.surfaces.pixelTextureSize,
+
+        } as React.CSSProperties;
 
         return (
             <div
                 style={cardStyle}
-                className={`card card--${variant}`}
+                className={`card card--${variant} ${className}`}
                 onClick={onClick}
                 role={onClick ? 'button' : undefined}
                 tabIndex={onClick ? 0 : undefined}
@@ -75,9 +110,10 @@ export const Card: React.FC<CardProps> & {
 const CardHeader: React.FC<CardHeaderProps> = ({ children, className = '' }) => {
     const theme = useTheme();
 
-    const headerStyle: React.CSSProperties = {
-        borderBottomColor: theme.colors.black,
-    };
+    const headerStyle = {
+        '--card-divider':
+            theme.colors.black,
+    } as React.CSSProperties;
 
     return (
         <div
@@ -100,9 +136,10 @@ const CardContent: React.FC<CardContentProps> = ({ children, className = '' }) =
 const CardFooter: React.FC<CardFooterProps> = ({ children, className = '' }) => {
     const theme = useTheme();
 
-    const footerStyle: React.CSSProperties = {
-        borderTopColor: theme.colors.black,
-    };
+    const footerStyle = {
+        '--card-divider':
+            theme.colors.black,
+    } as React.CSSProperties;
 
     return (
         <div
