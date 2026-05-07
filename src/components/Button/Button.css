@@ -1,0 +1,32 @@
+.btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  font-family: 'Press Start 2P', 'Courier New', monospace;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0;
+  cursor: pointer;
+  transition: all 0.08s ease;
+  overflow: hidden;
+  text-decoration: none;
+  user-select: none;
+  image-rendering: pixelated;
+
+  border-radius: 0;
+
+  background-image:
+    linear-gradient(45deg, transparent 48%, rgba(0, 0, 0, 0.2) 50%, transparent 52%),
+    linear-gradient(-45deg, transparent 48%, rgba(0, 0, 0, 0.2) 50%, transparent 52%);
+  background-size: 7px 7px;
+
+  box-shadow: '4px 4px 0px 0px #0f1f00',
+}
+
+.btn:hover:not(:disabled) {
+  background-size: 15px 15px;
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px 0px #0f1f00;
+}
