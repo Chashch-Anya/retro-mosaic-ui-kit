@@ -5,3 +5,6 @@ export * from './Modal/Modal';
 export * from './Checkbox/Checkbox';
 export * from './Textarea/Textarea';
 export * from './Select/Select';
+export * from './Tabs/Tabs';
+export * from './Badge/Badge';
+export * from './Panel/Panel';
