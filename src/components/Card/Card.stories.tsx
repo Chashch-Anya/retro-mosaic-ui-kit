@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Card } from './Card';
 import { Button } from '../Button/Button';
 
-const meta = {
+const meta: Meta<typeof Card> = {
     title: 'Components/Card',
     component: Card,
     parameters: {
@@ -13,16 +13,16 @@ const meta = {
         variant: {
             control: 'select',
             options: ['primary', 'secondary', 'accent'],
-            description: 'Цветовой вариант карточки',
+            description: 'Card variant',
         },
         padding: {
             control: { type: 'select' },
             options: ['none', 'small', 'medium', 'large'],
-            description: 'Размер внутренних отступов',
+            description: 'Card padding',
         },
         children: {
             control: { type: 'text' },
-            description: 'Содержимое карточки',
+            description: 'Card children',
         },
         onClick: {
             action: 'clicked',
@@ -98,26 +98,28 @@ export const WithHeaderAndFooter: Story = {
         children: 'Primary Card with Header and Footer',
     },
     render: () => (
-        <Card variant="primary" padding="large">
+        <div style={{ maxWidth: 480 }}>
+            <Card variant="primary" padding="large" >
 
-            <Card.Header>
-                <h3>
-                    Card heaer
-                </h3>
-            </Card.Header>
+                <Card.Header>
+                    <h3>
+                        Card heaer
+                    </h3>
+                </Card.Header>
 
-            <Card.Content>
-                <p>
-                    Card content with different information
-                </p>
-            </Card.Content>
+                <Card.Content>
+                    <p>
+                        Card content with different information
+                    </p>
+                </Card.Content>
 
-            <Card.Footer>
-                <div style={{ display: 'flex', gap: '8px', justifyContent: 'flex-end' }}>
-                    <Button size="small" variant="accent">Cancel</Button>
-                    <Button size="small" variant="primary">Save</Button>
-                </div>
-            </Card.Footer>
-        </Card>
+                <Card.Footer>
+                    <div style={{ display: 'flex', gap: '8px', justifyContent: 'flex-end' }}>
+                        <Button size="small" variant="accent">Cancel</Button>
+                        <Button size="small" variant="primary">Save</Button>
+                    </div>
+                </Card.Footer>
+            </Card>
+        </div>
     ),
 };

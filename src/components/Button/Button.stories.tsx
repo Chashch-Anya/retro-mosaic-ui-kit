@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Button } from './Button';
 
-const meta = {
+const meta: Meta<typeof Button> = {
     title: 'Components/Button',
     component: Button,
     parameters: {
@@ -12,26 +12,26 @@ const meta = {
         variant: {
             control: 'select',
             options: ['primary', 'secondary', 'accent'],
-            description: 'Тип кнопки',
+            description: 'Button variant',
         },
         size: {
             control: 'select',
             options: ['small', 'medium', 'large'],
-            description: 'Размер кнопки',
+            description: 'Button size',
         },
         disabled: {
             control: 'boolean',
-            description: 'Отключенное состояние',
+            description: 'Disabled button',
         },
         onClick: {
             action: 'clicked',
-            description: 'Обработчик клика',
+            description: 'onClick',
         },
     },
     args: {
         onClick: () => console.log('Button clicked!'),
     },
-} satisfies Meta<typeof Button>;
+};
 
 export default meta;
 

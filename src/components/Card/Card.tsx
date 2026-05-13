@@ -54,43 +54,52 @@ export const Card: React.FC<CardProps> & {
 
         const currentPadding = paddingMap[padding];
 
+        const variantMap = {
+            primary: {
+                bg: theme.colors.primary[500],
+                color: theme.colors.white,
+                border: theme.colors.black,
+            },
+
+            secondary: {
+                bg: theme.colors.gray[300],
+                color: theme.colors.white,
+                border:  theme.colors.gray[700],
+            },
+
+            accent: {
+                bg: theme.colors.accent[500],
+                color: theme.colors.black,
+                border: theme.colors.accent[500],
+            }
+        }
+
+        const currentVariant = variantMap[variant];
+
         const cardStyle = {
-            '--card-bg':
-                variant === 'primary'
-                    ? theme.colors.primary[500]
-                    : variant === 'secondary'
-                        ? theme.colors.gray[300]
-                        : theme.colors.accent[500],
+            '--card-bg': currentVariant.bg,
 
-            '--card-color':
-                variant === 'accent'
-                    ? theme.colors.black
-                    : theme.colors.white,
+            '--card-color': currentVariant.color,
 
-            '--card-border':
-                variant === 'primary'
-                    ? theme.colors.black
-                    : variant === 'secondary'
-                        ? theme.colors.gray[700]
-                        : theme.colors.accent[500],
+            '--card-border': currentVariant.border,
+            
+            '--card-padding': currentPadding,
 
-            '--card-padding':
-                currentPadding,
+            '--card-shadow': theme.shadows.md,
 
-            '--card-shadow':
-                theme.shadows.md,
+            '--card-font-family': theme.typography.fonts.body,
 
-            '--card-font-family':
-                theme.typography.fontFamily,
+            '--card-radius': theme.radius.none,
 
-            '--card-radius':
-                theme.radius.none,
+            '--mosaic-surface': theme.surfaces.pixelTexture,
 
-            '--mosaic-surface':
-                theme.surfaces.pixelTexture,
+            '--mosaic-surface-size': theme.surfaces.pixelTextureSize,
 
-            '--mosaic-surface-size':
-                theme.surfaces.pixelTextureSize,
+            '--card-surface-inset': theme.shadows.surfaceInset,
+
+            '--card-heading-font': theme.typography.fonts.heading,
+
+            '--card-body-font': theme.typography.fonts.body,
 
         } as React.CSSProperties;
 

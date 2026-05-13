@@ -1,0 +1,75 @@
+.select {
+    position: relative;
+
+    appearance: none;
+
+    border: 2px solid var(--select-border);
+
+    background: var(--select-bg);
+
+    color: var(--select-color);
+
+    padding: var(--select-padding);
+
+    padding-right: 40px;
+
+    font-size: var(--select-font-size);
+
+    font-family: var(--select-font-family);
+
+    border-radius: var(--select-radius);
+
+    box-shadow: var(--select-shadow);
+
+    outline: none;
+
+    cursor: pointer;
+
+    /* background-image: var(--mosaic-surface);
+
+    background-size: var(--mosaic-surface-size); */
+    overflow: hidden;
+
+    transition:
+        transform 0.08s ease,
+        box-shadow 0.08s ease,
+        border-color 0.08s ease;
+
+
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 10px;
+    background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%23081820' stroke-width='4' stroke-linecap='square'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+}
+
+.select::before {
+    content: '';
+
+    position: absolute;
+    inset: 0;
+
+    pointer-events: none;
+
+    opacity: 0.08;
+
+    background-image: var(--mosaic-surface);
+
+    background-size: var(--mosaic-surface-size);
+}
+
+.select:focus {
+    box-shadow:
+        var(--select-shadow),
+        var(--select-focus-shadow);
+}
+
+.select:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.select option {
+    background: var(--select-option-bg);
+    color: var(--select-option-color);
+}

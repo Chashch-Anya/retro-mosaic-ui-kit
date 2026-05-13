@@ -4,22 +4,27 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 8px;
 
-  border: none;
+  overflow: hidden;
 
   cursor: pointer;
 
-  overflow: hidden;
+  border: 1px solid var(--btn-border);
+
+  padding: var(--btn-padding);
 
   background: var(--btn-bg);
 
   color: var(--btn-color);
 
-  padding: var(--btn-padding);
+  font-family: var(--btn-font-family);
 
   font-size: var(--btn-font-size);
 
-  font-family: var(--btn-font-family);
+  line-height: 1;
+
+  letter-spacing: 0.5px;
 
   border-radius: var(--btn-radius);
 
@@ -27,15 +32,20 @@
 
   transition:
     transform 0.08s ease,
-    box-shadow 0.08s ease;
+    box-shadow 0.08s ease,
+    border-color 0.08s ease,
+    background-color 0.08s ease;
 }
 
 .btn:hover:not(:disabled) {
   transform: translate(-2px, -2px);
+  box-shadow: var(--btn-shadow-hover);
+  filter: brightness(1.05);
 }
 
 .btn:active:not(:disabled) {
   transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 var(--btn-shadow-color);
 }
 
 .btn:disabled {
@@ -43,15 +53,73 @@
   opacity: 0.5;
 }
 
-.btn::before {
+.btn:focus-visible {
+  outline: none;
+
+  box-shadow:
+    var(--btn-shadow),
+    var(--btn-focus-shadow);
+}
+
+.btn--primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.35;
+  background-image: var(--mosaic-surface);
+  background-size: var(--mosaic-surface-size);
+}
+
+.btn--secondary::before,
+.btn--accent::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: var(--mosaic-surface);
+  background-size: var(--mosaic-surface-size);
+}
+
+.btn--secondary::before {
+  opacity: 0.12;
+}
+
+.btn--accent::before {
+  opacity: 0.2;
+}
+
+.btn--sm {
+  padding: 8px 12px;
+  font-size: 10px;
+}
+
+.btn--md {
+  padding: 12px 18px;
+  font-size: 12px;
+}
+
+.btn--lg {
+  padding: 14px 22px;
+  font-size: 13px;
+}
+
+.btn::after {
   content: '';
 
   position: absolute;
-  inset: 0;
+
+  top: 0;
+  left: 0;
+  right: 0;
+
+  height: 2px;
 
   pointer-events: none;
 
-  background-image: var(--mosaic-surface);
+  background: rgba(255, 255, 255, 0.18);
+}
 
-  background-size: var(--mosaic-surface-size);
+.button--full-width {
+  width: 100%;
 }

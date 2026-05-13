@@ -1,0 +1,59 @@
+.input {
+  position: relative;
+
+  border: 2px solid var(--input-border);
+
+  background: var(--input-bg);
+
+  color: var(--input-color);
+
+  padding: var(--input-padding);
+
+  font-size: var(--input-font-size);
+
+  font-family: var(--input-font-family);
+
+  border-radius: var(--input-radius);
+
+  box-shadow: var(--input-shadow);
+
+  outline: none;
+
+  transition:
+    transform 0.08s ease,
+    box-shadow 0.08s ease,
+    border-color 0.08s ease;
+
+  overflow: hidden;
+}
+
+.input::before {
+  content: '';
+
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+
+  opacity: 0.08;
+
+  background-image: var(--mosaic-surface);
+
+  background-size: var(--mosaic-surface-size);
+}
+
+.input:focus {
+  box-shadow:
+    var(--input-shadow),
+    var(--input-focus-shadow);
+}
+
+.input:disabled {
+  opacity: 0.5;
+
+  cursor: not-allowed;
+}
+
+.input::placeholder {
+  opacity: 0.7;
+}

@@ -1,7 +1,5 @@
 import React from "react";
-
 import { useTheme } from "../../styles/useTheme";
-
 import './Button.css';
 
 export interface ButtonProps {
@@ -16,6 +14,8 @@ export interface ButtonProps {
     ) => void;
 
     disabled?: boolean;
+
+    fullWidth?: boolean;
 }
 
 export const Button: React.FC<ButtonProps> = ({
@@ -23,7 +23,8 @@ export const Button: React.FC<ButtonProps> = ({
     variant = 'primary',
     size = 'small',
     onClick,
-    disabled = false
+    disabled = false,
+    fullWidth = false,
 }) => {
     const theme = useTheme();
 
@@ -48,16 +49,25 @@ export const Button: React.FC<ButtonProps> = ({
         primary: {
             background: theme.colors.primary[500],
             color: theme.colors.white,
+            border: theme.colors.primary[500],
+            shadow: theme.shadows.primary.md,
+            shadowHover: theme.shadows.primary.lg,
         },
 
         secondary: {
             background: theme.colors.gray[500],
             color: theme.colors.white,
+            border: theme.colors.gray[300],
+            shadow: theme.shadows.secondary.md,
+            shadowHover: theme.shadows.secondary.lg,
         },
 
         accent: {
             background: theme.colors.accent[500],
             color: theme.colors.black,
+            border: theme.colors.white,
+            shadow: theme.shadows.accent.md,
+            shadowHover: theme.shadows.accent.lg,
         },
     };
 
@@ -74,20 +84,19 @@ export const Button: React.FC<ButtonProps> = ({
 
         '--btn-font-size': currentSize.fontSize,
 
-        '--btn-font-family':
-            theme.typography.fontFamily,
+        '--btn-font-family': theme.typography.fonts.heading,
 
-        '--btn-radius':
-            theme.radius.none,
+        '--btn-radius': theme.radius.none,
 
-        '--btn-shadow':
-            theme.shadows.md,
+        '--btn-shadow': currentVariant.shadow,
 
-        '--mosaic-surface':
-            theme.surfaces.pixelTexture,
+        '--btn-shadow-hover': currentVariant.shadowHover,
 
-        '--mosaic-surface-size':
-            theme.surfaces.pixelTextureSize,
+        '--btn-border': currentVariant.border,
+
+        '--mosaic-surface': theme.surfaces.pixelTexture,
+
+        '--mosaic-surface-size': theme.surfaces.pixelTextureSize,
     } as React.CSSProperties;
 
     return (
@@ -95,7 +104,7 @@ export const Button: React.FC<ButtonProps> = ({
             style={buttonStyle}
             onClick={onClick}
             disabled={disabled}
-            className={`btn btn--${variant}`}
+            className={`btn btn--${variant} ${fullWidth ? 'button--full-width' : ''}`}
         >
             {children}
         </button>

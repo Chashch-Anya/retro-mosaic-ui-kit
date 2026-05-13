@@ -1,73 +1,92 @@
-# React + TypeScript + Vite
+# Mosaic UI
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Retro pixel-inspired React UI kit built with React, TypeScript and Storybook.
 
-Currently, two official plugins are available:
+Mosaic UI combines chunky retro interfaces, pixel aesthetics and reusable modern UI patterns for dashboards, forms and desktop-like interfaces.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Preview
 
-## React Compiler
+### Retro Login Form
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+![Retro Login Form](./screenshots/login-form.png)
 
-## Expanding the ESLint configuration
+### System Shutdown
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+![System Shutdown](./screenshots/system-shutdown.png)
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Tabs Showcase
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+![Tabs Showcase](./screenshots/tabs.png)
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Features
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- Retro pixel-inspired visual style
+- Token-driven theme system
+- Reusable React + TypeScript components
+- Storybook documentation
+- Variant-based styling
+- Retro desktop and system UI examples
+- Consistent spacing, shadows and surfaces
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Installation
+<!-- ```bash
+npm install
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
+```md id="v8jlwm"
+Run Storybook locally:
+
+```bash
+npm run storybook -->
+
+## Components
+
+### Core Components
+
+- Button
+- Input
+- Textarea
+- Checkbox
+- Badge
+- Tabs
+- Card
+- Panel
+- Modal
+
+### Example Screens
+
+- CreateTaskForm
+- RetroLoginForm
+- SystemShutdown
+
+## Storybook
+
+Storybook is used to document components, foundations and interactive examples.
+
+Included sections:
+
+- Foundations
+- Components
+- Examples
+
+## Examples
+
+Mosaic UI includes several retro-inspired example screens built with reusable components:
+
+- Retro login form
+- System shutdown dialog
+- Task creation form
+- Desktop-style modal layouts
+- Retro tabs and panel compositions
+
+## Tech Stack
+
+- React
+- TypeScript
+- Storybook
+- CSS Modules
+- Theme tokens and variant maps
+
+## Goals
+
+Mosaic UI was created as an experiment in retro-inspired interface design, combining pixel aesthetics with reusable modern React components and design-system principles.

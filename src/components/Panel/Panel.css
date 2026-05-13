@@ -1,0 +1,60 @@
+.panel {
+  position: relative;
+
+  overflow: hidden;
+
+  border: 2px solid var(--panel-border);
+
+  background: var(--panel-bg);
+
+  box-shadow:
+    var(--panel-surface-inset),
+    var(--panel-shadow);
+
+  border-radius: var(--panel-radius);
+
+  color: var(--panel-title-color);
+}
+
+.panel::before {
+  content: '';
+
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+
+  opacity: 0.14;
+
+  background-image: var(--mosaic-surface);
+
+  background-size: var(--mosaic-surface-size);
+}
+
+.panel__header {
+  position: relative;
+
+  padding: var(--panel-padding);
+
+  border-bottom: 2px solid var(--panel-border);
+}
+
+.panel__title {
+  margin: 0;
+
+  font-family: var(--panel-heading-font);
+
+  font-size: 14px;
+
+  line-height: 1.4;
+
+  text-transform: uppercase;
+}
+
+.panel__content {
+  position: relative;
+
+  padding: var(--panel-padding);
+
+  font-family: var(--panel-font-family);
+}

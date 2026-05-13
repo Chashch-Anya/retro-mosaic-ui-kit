@@ -8,7 +8,9 @@ export const mosaicTheme = {
     },
 
     radius: {
-        none: '0',
+        none: '0px',
+        sm: '4px',
+        md: '8px',
     },
 
     // Палитра
@@ -33,35 +35,86 @@ export const mosaicTheme = {
             600: 'rgba(255, 255, 255, 0.7)',
         },
 
+        feedback: {
+            success: '#88c070',
+            warning: '#d8b256',
+            danger: '#c85d4a',
+            info: '#6fa8dc',
+        },
+
         white: '#ffffff',
         black: '#081820',
     },
 
     shadows: {
-        sm: '2px 2px 0px #0f1f00',
-        md: '4px 4px 0px #0f1f00',
-        lg: '6px 6px 0px #0f1f00',
+        sm: '2px 2px 0 rgba(0,0,0,0.15)',
+        md: '4px 4px 0 rgba(0,0,0,0.2)',
+        lg: '6px 6px 0 rgba(0,0,0,0.25)',
+
+        primary: {
+            md: '4px 4px 0 #183828',
+            lg: '6px 6px 0 #183828',
+        },
+
+        secondary: {
+            md: '4px 4px 0 #556600',
+            lg: '6px 6px 0 #556600',
+        },
+
+        accent: {
+            md: '4px 4px 0 #9a9a9a',
+            lg: '6px 6px 0 #9a9a9a',
+        },
+
+        focus: '0 0 0 2px rgba(136,192,112,0.4)',
+
+        input: '2px 2px 0 rgba(0,0,0,0.12)',
+
+        surfaceInset: 'inset 0 0 0 1px rgba(255,255,255,0.04)',
     },
 
     typography: {
-        fontFamily: "'Press Start 2P', monospace",
+        fonts: {
+            heading: "'Press Start 2P', monospace",
+            body: "'Inter', sans-serif",
+        },
 
         sizes: {
-            sm: '12px',
-            md: '14px',
-            lg: '16px',
+            xs: '12px',
+            sm: '14px',
+            md: '16px',
+            lg: '20px',
+            xl: '28px',
         },
 
         lineHeights: {
-            sm: '1.2',
-            md: '1.4',
-            lg: '1.6',
+            sm: '1.4',
+            md: '1.6',
+            lg: '1.8',
         },
+
+        weights: {
+            regular: 400,
+            medium: 500,
+            bold: 700,
+        }
+    },
+
+    transitions: {
+        fast: '0.08s ease',
+        normal: '0.16s ease',
     },
 
     surfaces: {
+
+        base: '#102820',
+
+        elevated: '#183828',
+
+        overlay: '#224838',
+
         pixelTexture: `
-    linear-gradient(
+      linear-gradient(
       45deg,
       transparent 48%,
       rgba(0,0,0,0.2) 50%,
