@@ -4,6 +4,9 @@ Retro pixel-inspired React UI kit built with React, TypeScript and Storybook.
 
 Mosaic UI combines chunky retro interfaces, pixel aesthetics and reusable modern UI patterns for dashboards, forms and desktop-like interfaces.
 
+📚 Storybook:
+https://mosaic-ui-kit.vercel.app/
+
 ## Preview
 
 ### Retro Login Form
